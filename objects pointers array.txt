@@ -1,0 +1,38 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class Num{
+    int code, price;
+     public:
+      void setdata(int a, int b){
+          code =  a;
+          price = b;
+      }
+      void getdata(void){
+          
+          cout << "Price of item with code number : " << code <<" is : $" << price << endl;
+      }
+    
+};
+int main() {
+    int size, p, q, i;
+    cout << " Enter the size you want : ";
+    cin >> size;
+    
+    Num *ptr = new Num[size];
+    // ptr = & Num[0] (Address of first Object)
+    // ptr+1 = & Num[1] (Adress of second object)
+    for (i =0; i < size; i++){
+    cout << " Enter the item code and price :";
+    cin >> p >> q;
+    (ptr+i)  ->setdata(p,q); // write parenthesis bczz it has highest precedance 
+    }
+    
+    for(i =0; i < size; i++){
+        (ptr+i)  -> getdata();   // write parenthesis bczz it has highest precedance 
+    }
+    
+    
+    return 0;
+}
